@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Ambiente local — nunca subir para o GitHub ###
+.env
+.env.local
+.env.*
+
+### Compilação ###
+target/
