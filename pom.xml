@@ -21,9 +21,9 @@
     </scm>
 
     <properties>
-        <java.version>25</java.version>
-        <maven.compiler.source>25</maven.compiler.source>
-        <maven.compiler.target>25</maven.compiler.target>
+        <java.version>24</java.version>
+        <maven.compiler.source>24</maven.compiler.source>
+        <maven.compiler.target>24</maven.compiler.target>
         <jjwt.version>0.12.7</jjwt.version>
         <bucket4j.version>8.19.0</bucket4j.version>
         <googleauth.version>1.5.0</googleauth.version>
@@ -101,6 +101,12 @@
             <artifactId>jjwt-jackson</artifactId>
             <version>${jjwt.version}</version>
             <scope>runtime</scope>
+        </dependency>
+
+        <!-- Base32 para TOTP -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
         </dependency>
 
         <!-- ===== RATE LIMITING

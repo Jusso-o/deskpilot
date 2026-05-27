@@ -33,21 +33,20 @@ public class JwtFilter extends OncePerRequestFilter {
             @NonNull FilterChain filterChain
     ) throws ServletException, IOException {
 
-        // Rotas públicas passam direto
         final String path = request.getServletPath();
-        if (path.startsWith("/auth/")) {
+        if (path.equals("/auth/login") ||
+                path.equals("/auth/register") ||
+                path.equals("/auth/refresh")) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        // Extrai o header Authorization
         final String authHeader = request.getHeader("Authorization");
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        // Extrai e valida o token
         final String token    = authHeader.substring(7);
         final String username = jwtService.extractUsername(token);
 
